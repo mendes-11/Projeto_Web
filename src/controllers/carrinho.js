@@ -7,7 +7,7 @@ const setor = require('../model/setores');
 const setores = require('../model/setores');
 
 module.exports = {
-    async carrinho(req, res) {
+    async Carrinho(req, res) {
         res.render('../views/carrinho');
     },
 

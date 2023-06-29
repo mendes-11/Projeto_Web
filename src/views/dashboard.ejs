@@ -81,36 +81,38 @@
                                 <form class="d-flex search" role="search">
                                     <input class="form-control me-2" type="search" placeholder="Search"
                                         aria-label="Search">
-                                    <button class="btn btn-outline-dark" type="submit">Buscar</button>
-
-                                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                                        aria-labelledby="offcanvasNavbarLabel">
-                                        <div class="offcanvas-header">
-                                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="offcanvas-body">
-                                            <ul class="navbar-nav justify-content-end flex-grow-5 pe-3">
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <span class="material-symbols-outlined">
-                                                            menu
-                                                        </span>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="/carrinho">Carrinho</a></li>
-                                                        <li>
-                                                            <hr class="dropdown-divider">
-                                                        </li>
-                                                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </form>
+                                <button class="btn btn-outline-dark">Buscar</button>
+
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                                    aria-labelledby="offcanvasNavbarLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <ul class="navbar-nav justify-content-end flex-grow-5 pe-3">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" role="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <span class="material-symbols-outlined">
+                                                        menu
+                                                    </span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" name="carGo" type="submit">Carrinho</a></li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li><a class="dropdown-item" name="sair" type="submit"
+                                                            href="">Logout</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
                             </div>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -142,7 +144,8 @@
             <div class="secao4-div-2">
                 <div class="secao4-div-2-coluna">
                     <!-- elemento imagem, h3 e p -->
-                    <img decoding="async" loading="lazy" src="../../public/img/panopapeljumbo.jpg" width="100%" height="80">
+                    <img decoding="async" loading="lazy" src="../../public/img/panopapeljumbo.jpg" width="100%"
+                        height="80">
                     <h3>F0008994LR</h3>
                     <p>Pano de limpeza Wiper Wypall X-60 JUMB</p>
                     <button type="button" class="btn btn-outline-dark">Adicionar no carrinho</button>

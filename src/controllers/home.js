@@ -3,11 +3,11 @@ const colaborador = require('../model/colaborador');
 const setores = require('../model/setores');
 
 module.exports = {
-        async pagInicialGet(req, res) {
+        async PagInicialGet(req, res) {
                 res.render('../views/inicial', {message: ''});
             },
         
-            async pagIncialPost(req, res) {
+            async PagIncialPost(req, res) {
                 const edvs = req.body.edv;
                 const colaboradores = await colaborador.findOne({
                     raw: true,

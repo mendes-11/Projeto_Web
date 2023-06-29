@@ -6,12 +6,12 @@ const dashboard = require('./src/controllers/dashboard');
 const carrinho = require('./src/controllers/carrinho');
 // Iniciando as rotas
 
-route.get('/', home.pagInicialGet);
-route.post('/', home.pagIncialPost);
+route.get('/', home.PagInicialGet);
+route.post('/', home.PagIncialPost);
 
-route.get('/dashboard', dashboard.tela);
+route.post('/dashboard', dashboard.Tela);
 // route.post('/dashboard', dashboard)
-route.get('/carrinho', carrinho.carrinho);
+route.get('/carrinho', carrinho.Carrinho);
 
 
 
