@@ -29,7 +29,8 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <title>Carrinho Bosch</title>
 </head>
 
@@ -75,20 +76,25 @@
                 </g>
               </svg></a>
             <div>
+
+
               <div class="collapse d-flex" id="navbarSupportedContent">
-                <button type="submit" class="btn btn-outline-dark" href="/dashboard"><svg xmlns="http://www.w3.org/2000/svg" width="45"
-                    height="40" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                <button type="submit" class="btn btn-outline-dark" id="dashboardBtn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="45" height="40" fill="currentColor"
+                    class="bi bi-arrow-left-short" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                       d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-                  </svg></button>
+                  </svg>
+                </button>
+
+                <script>
+                  document.getElementById("dashboardBtn").addEventListener("click", function () {
+                    window.location.href = "/dashboard";
+                  });
+                </script>
+
               </div>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="material-symbols-outlined">
-                  menu
-                </span>
-              </button>
+
             </div>
         </nav>
       </div>
@@ -107,67 +113,39 @@
               <th>Cancelar</th>
             </tr>
           </thead>
+
+
           <tbody>
-            <tr>
-              <td>
-                <div class="product">
-                  <img src="../../public/img/panozul.jpg" width="8%"alt="" />
-                  <div class="info">
-                    <div class="name">Pano azul</div>
+
+
+
+
+            <% for (let i=0; i<produto.length; i++) { %>
+              <tr>
+                <td>
+                  <div class="product">
+                    <img src="img/<%= produto[i].Foto%>" width="8%" alt="" />
+                    <div class="info">
+                      <div class="name">
+                        <%= produto[i].Nome %>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td>
-                <div class="qty">
-                  <button><i class="bx bx-minus"></i></button>
-                  <span>2</span>
-                  <button><i class="bx bx-plus"></i></button>
-                </div>
-              </td>
-              <td>
-                <button class="remove"><i class="bx bx-x"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="product">
-                  <img src="../../public/img/panopapel.jpg" width="8%" alt="" />
-                  <div class="info">
-                    <div class="name">Pano de limpeza Wiper Wypall X-60</div>
+                </td>
+                <td>
+                  <div class="qty">
+                    <button class="button" id="menos<%= i %>"><i class="bx bx-minus"></i></button>
+                    <input class="caixinha" type="button" id="valor<%= i %>" value="1">
+                    <button class="button" id="mais<%= i %>"><i class="bx bx-plus"></i></button>
                   </div>
-                </div>
-              </td>
-              <td>
-                <div class="qty">
-                  <button><i class="bx bx-minus"></i></button>
-                  <span>2</span>
-                  <button><i class="bx bx-plus"></i></button>
-                </div>
-              </td>
-              <td>
-                <button class="remove"><i class="bx bx-x"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="product">
-                  <img src="../../public/img/folha.jpg" width="8%" alt="" />
-                  <div class="info">
-                    <div class="name">Papel A4 - 210x297mm</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="qty">
-                  <button><i class="bx bx-minus"></i></button>
-                  <span>2</span>
-                  <button><i class="bx bx-plus"></i></button>
-                </div>
-              </td>
-              <td>
-                <button class="remove"><i class="bx bx-x"></i></button>
-              </td>
-            </tr>
+                </td>
+                <td>
+                  <a class="remove" type="button" href="/carrinho/remove/<%=i %>"><i class="bx bx-x"></i></a>
+                </td>
+              </tr>
+              <% } %>
+
+               
           </tbody>
         </table>
       </section>
@@ -177,7 +155,52 @@
     </aside>
   </main>
 
+<script>
+  function decrementar() {
+    var index = this.getAttribute("data-index");
+    var valor = document.getElementById("valor" + index);
+    var count = parseInt(valor.value);
+    if (count > 1) {
+      valor.value = count - 1;
+    }
+  }
 
+  function incrementar() {
+    var index = this.getAttribute("data-index");
+    var valor = document.getElementById("valor" + index);
+    var count = parseInt(valor.value);
+    valor.value = count + 1;
+  }
+
+  var menosButtons = document.querySelectorAll("[id^='menos']");
+  var maisButtons = document.querySelectorAll("[id^='mais']");
+
+  for (var i = 0; i < menosButtons.length; i++) {
+    menosButtons[i].addEventListener("click", decrementar);
+    menosButtons[i].setAttribute("data-index", i);
+    maisButtons[i].addEventListener("click", incrementar);
+    maisButtons[i].setAttribute("data-index", i);
+  }
+
+  // function removerProduto(event) {
+  //   var button = event.target;
+  //   var tr = button.closest("tr");
+  //   tr.parentNode.removeChild(tr);
+  // }
+
+  // var removeButtons = document.querySelectorAll(".remove");
+
+  // for (var i = 0; i < removeButtons.length; i++) {
+  //   removeButtons[i].addEventListener("click", removerProduto);
+  // }
+
+  // var menosButtons = document.querySelectorAll("[id^='menos']");
+  // var maisButtons = document.querySelectorAll("[id^='mais']");
+  
+</script>
+
+
+  
 </body>
 
 </html>

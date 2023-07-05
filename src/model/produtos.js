@@ -19,8 +19,13 @@ const produtos = database.define('Produtos', {
         allowNull: false
     },
     Nome: {
-        type: Sequelize.STRING(32)
+        type: Sequelize.STRING(60)
+    },
+    Foto: {
+        type: Sequelize.STRING(70),
+        allowNull: false
     }
 });
 
 module.exports = produtos;
+

@@ -28,7 +28,7 @@ module.exports = {
                     if(!setor) return res.render('../views/inicial', {message: 'Centro de custo é inválido'});
 
                     if (setor.Centro_Custo_Setor == centros){
-                         res.render('../views/dashboard');
+                         res.redirect('/dashboard');
                     }
                 }
             }

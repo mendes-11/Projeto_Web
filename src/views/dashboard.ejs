@@ -75,153 +75,71 @@
                                             d="M68.1,18.28H64.8v16.5H31.7V18.28H28.3a36.06,36.06,0,0,0,0,60.2h3.4V62H64.8v16.5h3.3a36.05,36.05,0,0,0,0-60.2ZM27.1,72A31.59,31.59,0,0,1,24.47,27.4a32.51,32.51,0,0,1,2.63-2.62Zm37.7-14.6H31.7V39.28H64.8Zm4.5,14.5v-10h0V34.78h0v-10a31.65,31.65,0,0,1,2.39,44.71A33.68,33.68,0,0,1,69.3,71.88Z" />
                                     </g>
                                 </g>
-                            </svg></a>
-                        <div>
-                            <div class="collapse d-flex justify-content-end" id="navbarSupportedContent">
-                                <form class="d-flex search" role="search">
-                                    <input class="form-control me-2" type="search" placeholder="Search"
-                                        aria-label="Search">
-                                </form>
-                                <button class="btn btn-outline-dark">Buscar</button>
-
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                                    aria-labelledby="offcanvasNavbarLabel">
-                                    <div class="offcanvas-header">
-                                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="offcanvas-body">
-                                        <ul class="navbar-nav justify-content-end flex-grow-5 pe-3">
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" role="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <span class="material-symbols-outlined">
-                                                        menu
-                                                    </span>
-                                                </a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" name="carGo" type="submit">Carrinho</a></li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
-                                                    <li><a class="dropdown-item" name="sair" type="submit"
-                                                            href="">Logout</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="material-symbols-outlined">
-                                    menu
-                                </span>
-
-                            </button>
-                        </div>
-                </nav>
-            </div>
+                           
+   </svg></a>
+   <div>
+       <div class="collapse d-flex justify-content-end" id="navbarSupportedContent">
+           <div class="search-box">
+               <input type="text" class="search-txt" placeholder="Pesquisar">
+               <a href="#" class="search-bnt">
+                   <img src="img/lopue.jpg" alt="Lupa" height="20" width="20">
+               </a>
+             </div>
+         
+        <div class="toggle"></div>
+        <div class="overlay"></div>
+        <div class="menu">
+           <ul>
+               <li><a name="carGo" type="submit" href="/carrinho">Carrinho</a></li>
+               <li><a name="sair" type="submit" href="/#">Logout</a></li>
+           </ul>
         </div>
-    </header>
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script type="text/javascript">
+           $(document).ready(function(){
+               $('.toggle').click(function(){
+                   $('.toggle').toggleClass('active')
+                   $('.overlay').toggleClass('active')
+                   $('.menu').toggleClass('active')
+               })
+           })
+        </script>     
+
+
+       </div>
+      
+   </div>
+</nav>
+</div>
+</div>
+</header>
+
+
 
     <section class="secao4" id="sobre">
         <div class="secao4-div">
-
+            <% for (let i=0; i<produto.length; i++) { %>
             <div class="secao4-div-1">
                 <div class="secao4-div-1-coluna">
-                    <!-- elemento imagem, h3 e p -->
-                    <img decoding="async" loading="lazy" src="../../public/img/panopapel.jpg" width="100%" height="80">
-                    <h3>F0008994VN</h3>
-                    <p>Pano de limpeza Wiper Wypall X-60</p>
-                    <button type="button" class="btn btn-outline-dark">Adicionar no carrinho</button>
+                    <img decoding="async" loading="lazy" src="img/<%= produto[i].Foto %>" width="100%" height="80">
+                    <h3>
+                        <%= produto[i].Norma %>
+                    </h3>
+                    <p>
+                        <%= produto[i].Nome %>
+                    </p>
+                    <form action="/carrinho/add" method="post">
+                        <input type="text" name="Id_Produto" hidden value="<%= produto[i].Id_Produtos %>">
+                        <button type="submit" name="add" class="btn btn-outline-dark">Adicionar no carrinho</button>
+                    </form>
                 </div>
             </div>
-
-            <div class="secao4-div-2">
-                <div class="secao4-div-2-coluna">
-                    <!-- elemento imagem, h3 e p -->
-                    <img decoding="async" loading="lazy" src="../../public/img/panopapeljumbo.jpg" width="100%"
-                        height="80">
-                    <h3>F0008994LR</h3>
-                    <p>Pano de limpeza Wiper Wypall X-60 JUMB</p>
-                    <button type="button" class="btn btn-outline-dark">Adicionar no carrinho</button>
-                </div>
-            </div>
-
-            <div class="secao4-div-3">
-                <div class="secao4-div-3-coluna">
-                    <!-- elemento imagem, h3 e p -->
-                    <img decoding="async" loading="lazy" src="../../public/img/panozul.jpg" width="100%" height="80">
-                    <h3>47.197.00.002</h3>
-                    <p>Pano azul</p>
-                    <button type="button" class="btn btn-outline-dark">Adicionar no carrinho</button>
-                </div>
-            </div>
-            <div class="secao4-div-1">
-                <div class="secao4-div-1-coluna">
-                    <!-- elemento imagem, h3 e p -->
-                    <img decoding="async" loading="lazy" src="../../public/img/folha.jpg" width="100%" height="80">
-                    <h3>F0008994YE</h3>
-                    <p>Folha A5 Branca</p>
-                    <button type="button" class="btn btn-outline-dark">Adicionar no carrinho</button>
-                </div>
-            </div>
-
-            <div class="secao4-div-2">
-                <div class="secao4-div-2-coluna">
-                    <!-- elemento imagem, h3 e p -->
-                    <img decoding="async" loading="lazy" src="../../public/img/folha.jpg" width="100%" height="80">
-                    <h3>F0008994VR</h3>
-                    <p>Papel A4 - 210x297mm</p>
-                    <button type="button" class="btn btn-outline-dark">Adicionar no carrinho</button>
-                </div>
-            </div>
-
-            <div class="secao4-div-3">
-                <div class="secao4-div-3-coluna">
-                    <!-- elemento imagem, h3 e p -->
-                    <img decoding="async" loading="lazy" src="../../public/img/folha.jpg" width="100%" height="80">
-                    <h3>F0008994VS</h3>
-                    <p>Papel A3 - 420x297mm</p>
-                    <button type="button" class="btn btn-outline-dark">Adicionar no carrinho</button>
-                </div>
-            </div>
-            <div class="secao4-div-1">
-                <div class="secao4-div-1-coluna">
-                    <!-- elemento imagem, h3 e p -->
-                    <img decoding="async" loading="lazy" src="../../public/img/lapis.jpg" width="100%" height="80">
-                    <h3>47.197.00.003</h3>
-                    <p>Papelaria</p>
-                    <button type="button" class="btn btn-outline-dark">Adicionar no carrinho</button>
-                </div>
-            </div>
-
-            <div class="secao4-div-2">
-                <div class="secao4-div-2-coluna">
-                    <!-- elemento imagem, h3 e p -->
-                    <img decoding="async" loading="lazy" src="../../public/img/borracha.jpg" width="100%" height="80">
-                    <h3>F0.3CJ.93.428</h3>
-                    <p>Papelaria</p>
-                    <button type="button" class="btn btn-outline-dark">Adicionar no carrinho</button>
-                </div>
-            </div>
-
-            <div class="secao4-div-3">
-                <div class="secao4-div-3-coluna">
-                    <!-- elemento imagem, h3 e p -->
-                    <img decoding="async" loading="lazy" src="../../public/img/caneta.jpg" width="100%" height="80">
-                    <h3>F0.008.99.4YE</h3>
-                    <p>Papelaria</p>
-                    <button type="button" class="btn btn-outline-dark">Adicionar no carrinho</button>
-                </div>
-            </div>
-
+            <% } %>
         </div>
     </section>
+
+
+    
 
 </body>
 
